@@ -1,0 +1,10 @@
+/*
+si haces referencia a un id se llama asi: #navbar por ejemplo. Con ell #
+
+
+si llamas una clase se llama con un . por ejemplo: .navbar
+*/
+
+.controls {
+    color: red;
+}
