@@ -3,18 +3,26 @@
     color: black;
 }
 
-.parrafo {
+.contenedor {
+    background-image: url('/img/Tarp.jpg');
+}
+
+.card-perfil {
     color: black;
     text-align: center;
-}
-
-.imagen {
-    width: 300px;
-    height: 300px;
-    border-radius: 150px;
-    display: block;
-    margin: auto;
+    .imagen {
+        height: 300px;
+        border-radius: 150px;
+        display: block;
+        margin: auto;
+        .card-texto {
+            color: darkolivegreen;
+        }
+    }
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/_images";
+@import "../node_modules/bootstrap/scss/_type";
+@import "../node_modules/bootstrap/scss/_mixins"
