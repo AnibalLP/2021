@@ -1,23 +1,60 @@
+:root {
+    --dark-cyan: hsl(185, 75%, 39%);
+    --very-dark-desaturated-blue: hsl(229, 23%, 23%);
+    --dark-grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+    --black: hsl(0, 0%, 0%);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.contenedor {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: var(--dark-cyan);
+}
+
 .nav-link {
     font-style: arial;
     color: black;
 }
 
-.contenedor {
-    background-image: url('/img/Tarp.jpg');
-}
-
 .card-perfil {
-    color: black;
-    text-align: center;
+    background-color: var(--dark-grayish-blue);
     .imagen {
-        height: 300px;
-        border-radius: 150px;
+        height: 200px;
+        border-radius: 100px;
         display: block;
         margin: auto;
         .card-texto {
-            color: darkolivegreen;
+            text-align: center;
         }
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cards-container {
+    background-color: burlywood;
+    width: 326px;
+    border-radius: 16px;
+    overflow: hidden;
+    .imagen {
+        width: 300px;
+        height: 100px;
     }
 }
 
@@ -25,4 +62,5 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/_images";
 @import "../node_modules/bootstrap/scss/_type";
+@import "../node_modules/bootstrap/scss/_mixins";
 @import "../node_modules/bootstrap/scss/_mixins"
