@@ -17,50 +17,29 @@ html {
     box-sizing: inherit;
 }
 
-.contenedor {
-    font-family: 'Kumbh Sans', sans-serif;
-    background-color: var(--dark-cyan);
+.imagen {
+    height: 400px;
+    border-radius: 200px;
+    margin: auto;
 }
 
-.nav-link {
-    font-style: arial;
-    color: black;
-}
-
-.card-perfil {
-    background-color: var(--dark-grayish-blue);
-    .imagen {
-        height: 200px;
-        border-radius: 100px;
-        display: block;
-        margin: auto;
-        .card-texto {
-            text-align: center;
-        }
-    }
-}
-
-.flex {
+.perfil {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
-.cards-container {
-    background-color: burlywood;
-    width: 326px;
-    border-radius: 16px;
-    overflow: hidden;
-    .imagen {
-        width: 300px;
-        height: 100px;
-    }
+hr {
+    size: 50px;
+}
+
+.cards {
+    display: flex;
+    margin: 10px;
+    text-align: center;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/bootstrap";
-@import "../node_modules/bootstrap/scss/_images";
-@import "../node_modules/bootstrap/scss/_type";
-@import "../node_modules/bootstrap/scss/_mixins";
-@import "../node_modules/bootstrap/scss/_mixins"
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
