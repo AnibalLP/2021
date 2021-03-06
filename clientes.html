@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Agua Potable</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
-    <link rel="stylesheet" href="./estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -31,8 +31,8 @@
             </div>
         </div>
     </nav>
-    <form v-on:submit.prevent="guardarCliente" v-on:reset="limpiar">
-        <div class="row">
+    <form v-on:submit.prevent="guardarCliente" v-on:reset="limpiar" id="app">
+        <div class="row p-5">
             <div class="col-sm-5">
                 <div class="row p-2">
                     <div class="col-sm text-center text-white bg-primary">
@@ -41,7 +41,8 @@
                                 <h5>REGISTRO DE CLIENTES</h5>
                             </div>
                             <div class="col-1 align-middle">
-                                <button type="button" onclick="appVue.forms['cliente'].mostrar=false" class="btn-close" aria-label="Close"></button>
+                                <button type="button" onclick="appVue.forms['cliente'].mostrar=false" class="btn-close"
+                                    aria-label="Close"></button>
                             </div>
                         </div>
                     </div>
@@ -49,25 +50,27 @@
                 <div class="row p-2">
                     <div class="col-sm">CODIGO:</div>
                     <div class="col-sm">
-                        <input v-model="cliente.codigo" required type="text" class="form-control form-control-sm">
+                        <input v-model="client.codigo" required type="text" class="form-control form-control-sm">
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col-sm">NOMBRE: </div>
                     <div class="col-sm">
-                        <input v-model="cliente.nombre" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text" class="form-control form-control-sm">
+                        <input v-model="client.nombre" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text"
+                            class="form-control form-control-sm">
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col-sm">DIRECCION: </div>
                     <div class="col-sm">
-                        <input v-model="cliente.direccion" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text" class="form-control form-control-sm">
+                        <input v-model="client.direccion" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text"
+                            class="form-control form-control-sm">
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col-sm">ZONA: </div>
                     <div class="col-sm">
-                        <input v-model="cliente.telefono" required pattern="[0-9]{4}-[0-9]{4}" type="text" class="form-control form-control-sm">
+                        <input v-model="client.zona" required type="text" class="form-control form-control-sm">
                     </div>
                 </div>
                 <div class="row p-2">
@@ -76,13 +79,7 @@
                         <input type="reset" value="Limpiar" class="btn btn-warning">
                     </div>
                 </div>
-                <div class="row p-2">
-                    <div class="col-sm text-center">
-                        <div v-if="status" class="alert" v-bind:class="[error ? 'alert-danger' : 'alert-success']">
-                            {{ msg }}
-                        </div>
-                    </div>
-                </div>
+               
             </div>
             <div class="col-sm"></div>
             <div class="col-sm-6 p-2">
@@ -97,7 +94,8 @@
                             <thead>
                                 <tr>
                                     <td colspan="5">
-                                        <input v-model="buscar" v-on:keyup="buscandoCliente" type="text" class="form-control form-contro-sm" placeholder="Buscar clientes">
+                                        <input v-model="buscar" v-on:keyup="buscandoCliente" type="text"
+                                            class="form-control form-contro-sm" placeholder="Buscar clientes">
                                     </td>
                                 </tr>
                                 <tr>
@@ -109,7 +107,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="pro in clientes" v-on:click="mostrarCliente(pro)">
+                                <tr v-for="pro in client" v-on:click="mostrarCliente(pro)">
                                     <td>{{ pro.codigo }}</td>
                                     <td>{{ pro.nombre }}</td>
                                     <td>{{ pro.direccion }}</td>
@@ -125,6 +123,10 @@
             </div>
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./clientes.js"></script>
+
 </body>
 
 </html>
