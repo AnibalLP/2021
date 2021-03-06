@@ -14,6 +14,23 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">::. Agua Potable .::</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link mostrar" data-form="cliente" href="clientes.html">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mostrar" data-form="cliente" href="lecturas.html">Lecturas</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
     <form v-on:submit.prevent="guardarCliente" v-on:reset="limpiar">
         <div class="row">
             <div class="col-sm-5">
@@ -48,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row p-2">
-                    <div class="col-sm">TEL: </div>
+                    <div class="col-sm">ZONA: </div>
                     <div class="col-sm">
                         <input v-model="cliente.telefono" required pattern="[0-9]{4}-[0-9]{4}" type="text" class="form-control form-control-sm">
                     </div>
@@ -87,7 +104,7 @@
                                     <th>CODIGO</th>
                                     <th>NOMBRE</th>
                                     <th>DIRECCION</th>
-                                    <th>TEL</th>
+                                    <th>ZONA</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -96,7 +113,7 @@
                                     <td>{{ pro.codigo }}</td>
                                     <td>{{ pro.nombre }}</td>
                                     <td>{{ pro.direccion }}</td>
-                                    <td>{{ pro.telefono }}</td>
+                                    <td>{{ pro.zona }}</td>
                                     <td>
                                         <a @click.stop="eliminarCliente(pro)" class="btn btn-danger">DEL</a>
                                     </td>
