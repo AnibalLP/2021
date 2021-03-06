@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Agua Potable</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+    <link rel="stylesheet" href="./estilos.css">
+</head>
+
+<body>
+    <form v-on:submit.prevent="guardarCliente" v-on:reset="limpiar">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="row p-2">
+                    <div class="col-sm text-center text-white bg-primary">
+                        <div class="row">
+                            <div class="col-11">
+                                <h5>REGISTRO DE CLIENTES</h5>
+                            </div>
+                            <div class="col-1 align-middle">
+                                <button type="button" onclick="appVue.forms['cliente'].mostrar=false" class="btn-close" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm">CODIGO:</div>
+                    <div class="col-sm">
+                        <input v-model="cliente.codigo" required type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm">NOMBRE: </div>
+                    <div class="col-sm">
+                        <input v-model="cliente.nombre" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm">DIRECCION: </div>
+                    <div class="col-sm">
+                        <input v-model="cliente.direccion" required pattern="[A-ZÑña-z0-9, ]{5,65}" type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm">TEL: </div>
+                    <div class="col-sm">
+                        <input v-model="cliente.telefono" required pattern="[0-9]{4}-[0-9]{4}" type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm text-center">
+                        <input type="submit" value="Guardar" class="btn btn-dark">
+                        <input type="reset" value="Limpiar" class="btn btn-warning">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-sm text-center">
+                        <div v-if="status" class="alert" v-bind:class="[error ? 'alert-danger' : 'alert-success']">
+                            {{ msg }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm"></div>
+            <div class="col-sm-6 p-2">
+                <div class="row text-center text-white bg-primary">
+                    <div class="col">
+                        <h5>CLIENTES REGISTRADOS</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <td colspan="5">
+                                        <input v-model="buscar" v-on:keyup="buscandoCliente" type="text" class="form-control form-contro-sm" placeholder="Buscar clientes">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>CODIGO</th>
+                                    <th>NOMBRE</th>
+                                    <th>DIRECCION</th>
+                                    <th>TEL</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="pro in clientes" v-on:click="mostrarCliente(pro)">
+                                    <td>{{ pro.codigo }}</td>
+                                    <td>{{ pro.nombre }}</td>
+                                    <td>{{ pro.direccion }}</td>
+                                    <td>{{ pro.telefono }}</td>
+                                    <td>
+                                        <a @click.stop="eliminarCliente(pro)" class="btn btn-danger">DEL</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
