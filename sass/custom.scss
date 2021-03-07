@@ -6,40 +6,21 @@
     --black: hsl(0, 0%, 0%);
 }
 
-html {
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-.imagen {
-    height: 400px;
-    border-radius: 200px;
-    margin: auto;
-}
-
-.perfil {
+.container-cards {
     display: flex;
-    margin-bottom: 50px;
-    text-align: center;
+    align-items: center;
 }
 
-hr {
-    size: 50px;
+.container-cards-img {
+    border-radius: 100px;
+    width: 500px;
+    height: 500px;
 }
 
-.cards {
-    display: flex;
-    margin: 10px;
-    text-align: center;
+.container-cards-text {
+    margin: 15px;
+    font-family: fantasy;
+    align-self: center;
 }
 
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "../node_modules/bootstrap/scss/bootstrap";
 @import "../node_modules/bootstrap/scss/bootstrap";
