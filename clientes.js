@@ -66,7 +66,7 @@
               console.log(pro);
           },
           eliminarCliente() {
-            localstorage.removeitem(cliente);
+              localStorage.removeItem("cliente.");
 
           },
 
