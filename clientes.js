@@ -66,7 +66,6 @@
               console.log(pro);
           },
           eliminarCliente() {
-            localstorage.removeitem(cliente);
 
           },
 
