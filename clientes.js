@@ -1,75 +1,74 @@
-new Vue({
-  el: "#app",
-  data: {
-    client: {
-      accion: "nuevo",
-      codigo: "",
-      nombre: "",
-      direccion: "",
-      zona: "",
-    },
-   
-    buscar: "",
-  },
-  created() {
-    this.getUser();
-  },
+  new Vue({
+      el: "#app",
+      data: {
+          client: {
+              accion: "nuevo",
+              codigo: "",
+              nombre: "",
+              direccion: "",
+              zona: "",
+          },
 
-  methods: {
-    getUser() {
-      const DB = localStorage.getItem("cliente")
-        ? JSON.parse(localStorage.getItem("cliente"))
-        : [];
+          buscar: "",
+      },
+      created() {
+          this.getUser();
+      },
 
-      return (this.client = DB);
-    },
-    guardarCliente() {
-      if (
-        this.client.codigo.trim() !== "" &&
-        this.client.nombre.trim() !== "" &&
-        this.client.direccion.trim() !== "" &&
-        this.client.zona.trim() !== ""
-      ) {
-        // asignamos un valor o recuperamos datos almacenados
-        let DB = localStorage.getItem("cliente")
-          ? JSON.parse(localStorage.getItem("cliente"))
-          : [];
-        delete this.client[0];
+      methods: {
+          getUser() {
+              const DB = localStorage.getItem("cliente") ?
+                  JSON.parse(localStorage.getItem("cliente")) : [];
 
-        DB.push({ ...this.client });
+              return (this.client = DB);
+          },
+          guardarCliente() {
+              if (
+                  this.client.codigo.trim() !== "" &&
+                  this.client.nombre.trim() !== "" &&
+                  this.client.direccion.trim() !== "" &&
+                  this.client.zona.trim() !== ""
+              ) {
+                  // asignamos un valor o recuperamos datos almacenados
+                  let DB = localStorage.getItem("cliente") ?
+                      JSON.parse(localStorage.getItem("cliente")) : [];
+                  delete this.client[0];
 
-       
-        localStorage.setItem("cliente", JSON.stringify(DB));
-        Swal.fire({
-            title:"Correcto",
-            text:`El cliente: ${this.client.nombre} se a guardado con exito`,
-            icon:"success"
-        })
-        return this.getUser();
-        
-      }
-    },
-    buscandoCliente() {
-      const db = localStorage.getItem("cliente")
-        ? JSON.parse(localStorage.getItem("cliente"))
-        : [];
-      if (this.buscar === "") {
-        return [];
-      }
+                  DB.push({...this.client });
 
-      this.buscar = this.buscar.toLocaleLowerCase();
-      this.client = db.filter(
-        (item) =>
-          item.codigo.toLocaleLowerCase().includes(this.buscar) ||
-          item.nombre.toLocaleLowerCase().includes(this.buscar) ||
-          item.zona.toLocaleLowerCase().includes(this.buscar)
-      );
-    },
-    mostrarCliente(pro) {
-      console.log(pro);
-    },
-    eliminarCliente() {},
 
-    limpiar() {},
-  },
-});
+                  localStorage.setItem("cliente", JSON.stringify(DB));
+                  Swal.fire({
+                      title: "Correcto",
+                      text: `El cliente: ${this.client.nombre} se a guardado con exito`,
+                      icon: "success"
+                  })
+                  return this.getUser();
+
+              }
+          },
+          buscandoCliente() {
+              const db = localStorage.getItem("cliente") ?
+                  JSON.parse(localStorage.getItem("cliente")) : [];
+              if (this.buscar === "") {
+                  return [];
+              }
+
+              this.buscar = this.buscar.toLocaleLowerCase();
+              this.client = db.filter(
+                  (item) =>
+                  item.codigo.toLocaleLowerCase().includes(this.buscar) ||
+                  item.nombre.toLocaleLowerCase().includes(this.buscar) ||
+                  item.zona.toLocaleLowerCase().includes(this.buscar)
+              );
+          },
+          mostrarCliente(pro) {
+              console.log(pro);
+          },
+          eliminarCliente() {
+
+          },
+
+          limpiar() {},
+      },
+  });
