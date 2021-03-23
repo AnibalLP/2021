@@ -1827,75 +1827,73 @@
         ])
 });;
 //# sourceMappingURL=axios.map                    var cancel;
-                    var token = new CancelToken(function executor(c) {
-                        cancel = c;
-                    });
-                    return {
-                        token: token,
-                        cancel: cancel
-                    };
-                };
-
-                module.exports = CancelToken;
+var token = new CancelToken(function executor(c) {
+    cancel = c;
+});
+return {
+    token: token,
+    cancel: cancel
+};
 
 
-                /***/
-            }),
-            /* 25 */
-            /***/
-            (function(module, exports) {
-
-                'use strict';
-
-                /**
-                 * Syntactic sugar for invoking a function and expanding an array for arguments.
-                 *
-                 * Common use case would be to use `Function.prototype.apply`.
-                 *
-                 *  ```js
-                 *  function f(x, y, z) {}
-                 *  var args = [1, 2, 3];
-                 *  f.apply(null, args);
-                 *  ```
-                 *
-                 * With `spread` this example can be re-written.
-                 *
-                 *  ```js
-                 *  spread(function(x, y, z) {})([1, 2, 3]);
-                 *  ```
-                 *
-                 * @param {Function} callback
-                 * @returns {Function}
-                 */
-                module.exports = function spread(callback) {
-                    return function wrap(arr) {
-                        return callback.apply(null, arr);
-                    };
-                };
+module.exports = CancelToken;
 
 
-                /***/
-            }),
-            /* 26 */
-            /***/
-            (function(module, exports) {
+/***/
 
-                'use strict';
+/* 25 */
+/***/
+(function(module, exports) {
 
-                /**
-                 * Determines whether the payload is an error thrown by Axios
-                 *
-                 * @param {*} payload The value to test
-                 * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
-                 */
-                module.exports = function isAxiosError(payload) {
-                    return (typeof payload === 'object') && (payload.isAxiosError === true);
-                };
+    'use strict';
+
+    /**
+     * Syntactic sugar for invoking a function and expanding an array for arguments.
+     *
+     * Common use case would be to use `Function.prototype.apply`.
+     *
+     *  ```js
+     *  function f(x, y, z) {}
+     *  var args = [1, 2, 3];
+     *  f.apply(null, args);
+     *  ```
+     *
+     * With `spread` this example can be re-written.
+     *
+     *  ```js
+     *  spread(function(x, y, z) {})([1, 2, 3]);
+     *  ```
+     *
+     * @param {Function} callback
+     * @returns {Function}
+     */
+    module.exports = function spread(callback) {
+        return function wrap(arr) {
+            return callback.apply(null, arr);
+        };
+    };
 
 
-                /***/
-            })
-            /******/
-        ])
-});;
+    /***/
+}),
+/* 26 */
+/***/
+(function(module, exports) {
+
+    'use strict';
+
+    /**
+     * Determines whether the payload is an error thrown by Axios
+     *
+     * @param {*} payload The value to test
+     * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+     */
+    module.exports = function isAxiosError(payload) {
+        return (typeof payload === 'object') && (payload.isAxiosError === true);
+    };
+
+
+    /***/
+})
+/******/
 //# sourceMappingURL=axios.map
