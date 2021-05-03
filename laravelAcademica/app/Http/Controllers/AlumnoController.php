@@ -15,7 +15,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //
-        $datos['alumnoss']=Alumno::paginate(5);
+        $datos['alumnos']=Alumno::paginate(5);
         return view('alumnos.index',$datos);
     }
 
@@ -52,6 +52,7 @@ class AlumnoController extends Controller
     public function show(Alumno $alumno)
     {
         //
+
     }
 
     /**
@@ -63,6 +64,8 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         //
+        $alumno=Alumnos::findOrFail($id);
+        return view('alumnos.edit');
     }
 
     /**
